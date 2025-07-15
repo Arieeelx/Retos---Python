@@ -4,12 +4,13 @@ from tkinter import messagebox
 from openpyxl import Workbook
 
 
-#Se crea el libro de excel
+# Se crea el libro de excel
 
 wb = Workbook()
 ws = wb.active
 ws.append(["Nombre", "Edad", "Email", "Teléfono", "Dirección"])
 
+# Función para guardar información en el archivo excel
 def guardar_datos():
     nombre = entry_nombre.get()
     edad = entry_edad.get()
@@ -35,19 +36,21 @@ def guardar_datos():
     wb.save('datos.xlsx')
     messagebox.showinfo("Información", "Datos guardados con éxito")
 
+    # Para borrar luego de ingresar un dato
+
     entry_nombre.delete(0, tk.END)
     entry_edad.delete(0, tk.END)
     entry_email.delete(0, tk.END)
     entry_telefono.delete(0, tk.END)
     entry_direccion.delete(0, tk.END)
 
+# Construcción de TKINTER
+
 root = tk.Tk()
 root.title("Formulario de Datos")
 root.configure(bg="#4B6587")
 label_style = {"bg": "#4B6587", "fg": "white"}
 entry_style = {"bg": "#D3D3D3", "fg": "black"}
-
-#Construcción de TKINTER
 
 label_nombre = tk.Label(root, text="Nombre", **label_style)
 label_nombre.grid(row=0, column=0, padx=10, pady=5)
