@@ -1,6 +1,8 @@
+import re
 import tkinter as tk
 from tkinter import messagebox
 from openpyxl import Workbook
+
 
 #Se crea el libro de excel
 
@@ -9,14 +11,39 @@ ws = wb.active
 ws.append(["Nombre", "Edad", "Email", "Teléfono", "Dirección"])
 
 def guardar_datos():
+    nombre = entry_nombre.get()
+    edad = entry_edad.get()
+    email = entry_email.get()
+    telefono = entry_telefono.get()
+    direccion = entry_direccion.get()
 
+    if not nombre or not edad or not email or not telefono or not direccion:
+        messagebox.showwarning("Advertencia", "Todos los campos son obligatorios")
 
-#wb.save("datos.xlsx") <- para guardar
+    try:
+        edad = int(edad)
+        telefono = int(telefono)
+    except ValueError:
+        messagebox.showwarning("Advertencia", "Por favor, para edad y teléfono deben ingresar números")
+        return
+
+    if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+        messagebox.showwarning("Advertencia", "Ingresar un email correcto")
+        return
+
+    ws.append([nombre, edad, email, telefono, direccion])
+    wb.save('datos.xlsx')
+    messagebox.showinfo("Información", "Datos guardados con éxito")
+
+    entry_nombre.delete(0, tk.END)
+    entry_edad.delete(0, tk.END)
+    entry_email.delete(0, tk.END)
+    entry_telefono.delete(0, tk.END)
+    entry_direccion.delete(0, tk.END)
 
 root = tk.Tk()
 root.title("Formulario de Datos")
 root.configure(bg="#4B6587")
-root.geometry("300x200")
 label_style = {"bg": "#4B6587", "fg": "white"}
 entry_style = {"bg": "#D3D3D3", "fg": "black"}
 
@@ -46,6 +73,9 @@ label_direccion = tk.Label(root, text="Dirección", **label_style)
 label_direccion.grid(row=4, column=0, padx=10, pady=5)
 entry_direccion = tk.Entry(root, **entry_style)
 entry_direccion.grid(row=4, column=1, padx=10, pady=5)
+
+boton_guardar = tk.Button(root, text="Guardar", command=guardar_datos, bg="#6D8299", fg="white")
+boton_guardar.grid(row=5, column=0, columnspan=2, padx=10, pady=10)
 
 
 root.mainloop()
