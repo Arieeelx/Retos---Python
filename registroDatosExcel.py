@@ -1,8 +1,16 @@
+import os
 import re
 import tkinter as tk
 from tkinter import messagebox
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 
+nombreArchivo = "datos.xlsx"
+
+# Valida que si ya está creado, registrará nuevos datos
+
+if os.path.exists(nombreArchivo):
+    wb = load_workbook(nombreArchivo)
+    ws = wb.active
 
 # Se crea el libro de excel
 
