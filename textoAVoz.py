@@ -1,9 +1,10 @@
 from gtts import gTTS
 import os
 
-texto = "Hola mundo, aprendiendo Python nuevamente jeje"
+with open('textoaleer.txt', 'r', encoding="utf-8") as file:
+    texto = file.read()
 
-output = gTTS(texto, lang="es", slow=False)
-output.save("output.mp3")
+audio = gTTS(texto, lang="es", slow="False")
+audio.save("output.mp3")
 
 os.system('start output.mp3')
