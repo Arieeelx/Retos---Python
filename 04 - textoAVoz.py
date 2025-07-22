@@ -12,8 +12,8 @@ def save_text():
 def text_to_speech():
     text = text_area.get("1.0", END)
     speech = gTTS(text=text, lang='es', slow=False)
-    speech.save('output_04.mp3')
-    os.system('start output_04.mp3')
+    speech.save('04_output.mp3')
+    os.system('start 04_output.mp3')
 
     status_label.config(text='Reproduciendo audio.')
 
