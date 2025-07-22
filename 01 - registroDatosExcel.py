@@ -4,7 +4,7 @@ import tkinter as tk
 from tkinter import messagebox
 from openpyxl import Workbook, load_workbook
 
-nombreArchivo = "datos.xlsx"
+nombreArchivo = "01 - datos.xlsx"
 
 # Se crea el libro de excel
 
@@ -39,7 +39,7 @@ def guardar_datos():
         return
 
     ws.append([nombre, edad, email, telefono, direccion])
-    wb.save('datos.xlsx')
+    wb.save('01 - datos.xlsx')
     messagebox.showinfo("Información", "Datos guardados con éxito")
 
     # Para borrar luego de ingresar un dato
