@@ -5,7 +5,6 @@ def convertir_a_fahrenheit():
     fahrenheit = round(celsius * 9 / 5 + 32, 1)
     result_label.config(text=f"°{fahrenheit} Fahrenheit")
 
-
 def convertir_a_celsius():
     fahrenheit = float(fahrenheit_entry.get())
     celsius = round((fahrenheit - 32) * 5 / 9, 1)
