@@ -29,13 +29,16 @@ campoHora = driver.find_element(By.NAME, "start_time")
 campoHora.send_keys("00:00")
 time.sleep(0.5)
 
+#click en botónn
 driver.find_element(By.CLASS_NAME, "homeSearchForm-button").click()
 time.sleep(4)
 
+#click en complejo a reservar
 driver.find_element(By.CSS_SELECTOR, "[title='COMPLEJO DOMINGO TOCORNAL']").click()
 time.sleep(4)
 
-
+driver.find_element(By.XPATH, "//a[contains(@class, 'complexTimeRange-Tag') and text()='10:00-11:00hrs']").click()
+time.sleep(4)
 
 time.sleep(10000)
 
