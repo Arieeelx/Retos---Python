@@ -1,9 +1,12 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 
-driver = webdriver.Chrome()
+#USO DE MICROSOFT EDGE
+service = Service("C:\\webdrivers\\msedgedriver.exe")
+
+driver = webdriver.Edge(service=service)
 
 driver.get("https://deportespuentealto.cl/recintos")
 time.sleep(2)
@@ -70,7 +73,4 @@ driver.find_element(By.CLASS_NAME, "js-complexFormButton-Submit").click()
 time.sleep(1.5)
 
 time.sleep(10000)
-
-
-
 

@@ -1,8 +1,8 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
+#USO DE GOOGLE CHROME
 driver = webdriver.Chrome()
 
 driver.get("https://deportespuentealto.cl/recintos")
@@ -70,4 +70,7 @@ driver.find_element(By.CLASS_NAME, "js-complexFormButton-Submit").click()
 time.sleep(1.5)
 
 time.sleep(10000)
+
+
+
 
