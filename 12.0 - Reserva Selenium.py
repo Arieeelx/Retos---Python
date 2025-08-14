@@ -44,20 +44,20 @@ wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "js-complexFormButton-Subm
 
 #registro de rut
 rutUsuario = wait.until(EC.element_to_be_clickable((By.NAME, "rut")))
-rutUsuario.send_keys("19562873-4")
+rutUsuario.send_keys("XXXXXXX")
 
 #fecha de nacimiento de usuario
 diaNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "day")))
-diaNacimiento.send_keys("5")
+diaNacimiento.send_keys("X")
 
 #mes de nacimiento de usuario
 mesNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "month")))
-mesNacimiento.send_keys("Diciembre")
+mesNacimiento.send_keys("XXXXXX")
 
 
 #año de nacimiento de usuario
 anoNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "year")))
-anoNacimiento.send_keys("1996")
+anoNacimiento.send_keys("XXXXX")
 
 
 #click siguiente pre-finalizar reserva
