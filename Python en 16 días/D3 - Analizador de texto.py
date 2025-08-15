@@ -28,3 +28,15 @@ letraInicio = texto[0]
 letraFinal = texto[-3]
 print(f"La primera letra del texto es '{letraInicio}' y la última letra es '{letraFinal}'")
 
+print("\nTEXTO INVERTIDO")
+
+palabras.reverse()
+textoInvertido = ' '.join(palabras)
+print(f"Si ordenamos el texto al revés, será: '{textoInvertido}'")
+
+print("\nBUSCANDO LA PALABRA PYTHON")
+
+buscarPalabra = input("Ingresa la palabra a buscar: ")
+resultadoPalabra = buscarPalabra in texto
+dic = {True:"sí", False:"no"}
+print(f"La palabra '{buscarPalabra}', {dic[resultadoPalabra]} se encuentra en el texto.")
