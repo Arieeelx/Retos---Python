@@ -27,7 +27,7 @@ campoReserva.send_keys("Futbolito")
 #Cambiar fecha a la correspondiente
 campoFecha = wait.until(EC.element_to_be_clickable((By.NAME, "date")))
 campoFecha.clear()
-campoFecha.send_keys("16/08/2025")
+campoFecha.send_keys("30/08/2025")
 
 #Hora siempre en 00:00
 campoHora = wait.until(EC.element_to_be_clickable((By.NAME, "start_time")))
@@ -40,7 +40,7 @@ wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "homeSearchForm-button")))
 wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[title='CANCHA DE FUTBOLITO SAN GERONIMO']"))).click()
 
 #click en hora
-wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(@class, 'complexTimeRange-Tag') and text()='21:00-22:00hrs']"))).click()
+wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(@class, 'complexTimeRange-Tag') and text()='19:00-20:00hrs']"))).click()
 
 time.sleep(2.5)
 
@@ -49,21 +49,27 @@ wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "js-complexFormButton-Subm
 
 #registro de rut
 rutUsuario = wait.until(EC.element_to_be_clickable((By.NAME, "rut")))
-rutUsuario.send_keys("XXXXXX")
+rutUsuario.send_keys("XXXXXXX-X")
 
 #fecha de nacimiento de usuario
 diaNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "day")))
-diaNacimiento.send_keys("XXXX")
+diaNacimiento.send_keys("1")
 
 #mes de nacimiento de usuario
 mesNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "month")))
-mesNacimiento.send_keys("XXXX")
+mesNacimiento.send_keys("Septiembre")
 
 #año de nacimiento de usuario
 anoNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "year")))
-anoNacimiento.send_keys("XXXX")
+anoNacimiento.send_keys("1901")
 
 #click siguiente pre-finalizar reserva
+wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "js-complexFormButton-Submit"))).click()
+
+#click en siguiente ya con datos del usuario
+wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "js-complexFormButton-Submit"))).click()
+
+#click en reservarr
 wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "js-complexFormButton-Submit"))).click()
 
 time.sleep(10000)
