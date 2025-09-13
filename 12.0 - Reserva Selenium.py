@@ -1,10 +1,11 @@
 import time
 from selenium import webdriver
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-#USO DE GOOGLE CHROME
+#USO DE GOOGLE CHROMEE
 driver = webdriver.Chrome()
 wait = WebDriverWait(driver, 100000)
 
@@ -22,7 +23,7 @@ campoReserva.send_keys("Futbolito")
 #Cambiar fecha a la correspondiente
 campoFecha = wait.until(EC.element_to_be_clickable((By.NAME, "date")))
 campoFecha.clear()
-campoFecha.send_keys("30/08/2025")
+campoFecha.send_keys("20/09/2025")
 
 #Hora siempre en 00:00
 campoHora = wait.until(EC.element_to_be_clickable((By.NAME, "start_time")))
@@ -32,10 +33,16 @@ campoHora.send_keys("00:00")
 wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "homeSearchForm-button"))).click()
 
 #click en complejo a reservar
-wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[title='CANCHA DE FUTBOLITO SAN GERONIMO']"))).click()
+try:
+    WebDriverWait(driver, 7).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[title='CANCHA DE FUTBOLITO SAN GERONIMO']"))).click()
+except TimeoutException:
+    try:
+        wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[title='COMPLEJO DEPORTIVO AMADOR  DONOSO']"))).click()
+    except TimeoutException:
+        pass
 
 #click en hora
-wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(@class, 'complexTimeRange-Tag') and text()='18:00-19:00hrs']"))).click()
+wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(@class, 'complexTimeRange-Tag') and text()='21:00-22:00hrs']"))).click()
 
 time.sleep(2.5)
 
@@ -44,19 +51,19 @@ wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "js-complexFormButton-Subm
 
 #registro de rut
 rutUsuario = wait.until(EC.element_to_be_clickable((By.NAME, "rut")))
-rutUsuario.send_keys("XXXXXXXX-X")
+rutUsuario.send_keys("XXXXXXX-X")
 
 #fecha de nacimiento de usuario
 diaNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "day")))
-diaNacimiento.send_keys("1")
+diaNacimiento.send_keys("X")
 
 #mes de nacimiento de usuario
 mesNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "month")))
-mesNacimiento.send_keys("Septiembre")
+mesNacimiento.send_keys("Xxxxxxx")
 
 #año de nacimiento de usuario
 anoNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "year")))
-anoNacimiento.send_keys("1910")
+anoNacimiento.send_keys("XXXX")
 
 #click siguiente pre-finalizar reserva
 wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "js-complexFormButton-Submit"))).click()
