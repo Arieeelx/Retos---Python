@@ -8,11 +8,26 @@ from random import *
 #si el usuario acierta se le informa que ha ganado y en cuantos intentos.
 
 nombreUsuario = input("Ingresa tu nombre: ")
-
 respuestasUsuario = []
+numeroSecreto = randint(1,101)
 
-for i in range(8):
-    respuestasUsuario.append(input("Ingresa tu respuesta: "))
-    if respuestasUsuario == randint(0, 101):
-        print("¡Has ganado! En tan solo ")
+print(numeroSecreto)
+
+for intento in range(8):
+
+    try:
+        respuestasUsuario.append(int(input("Ingresa tu respuesta: ")))
+        if respuestasUsuario[intento] < 1 or respuestasUsuario[intento] > 100:
+            print(f"¡Mal ahí {nombreUsuario}! \nDebes ingresar un número entre el 1-100.\nQuedan: {intento} intentos.")
+        elif respuestasUsuario[intento] == numeroSecreto:
+            print(f"¡Has adivinado {nombreUsuario}! \nEl número secreto era: {numeroSecreto} y tan solo en {intento} intentos.")
+            break
+        elif respuestasUsuario[intento] > numeroSecreto:
+            print(f"Equivocado {nombreUsuario}.\nEl número secreto es menor al elegido.\nQuedan: {intento} intentos.")
+        elif respuestasUsuario[intento] < numeroSecreto:
+            print(f"Equivocado {nombreUsuario}.\nEl número secreto es mayor al elegido.\nQuedan: {intento} intentos.")
+    finally:
+        pass
+
+
 
