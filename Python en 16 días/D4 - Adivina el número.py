@@ -37,7 +37,7 @@ def aJugar():
         seguirJugando = input("\n¿Deseas jugar otra vez?\ns: Seguir jugando.\nn: Quiero irme a la camita\ns/n")
 
         if seguirJugando.lower() == "s":
-            nuevoJuego()
+            aJugar()
         elif seguirJugando.lower() == "n":
             print("Hasta la vista bby")
             break
