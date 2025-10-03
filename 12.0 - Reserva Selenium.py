@@ -23,7 +23,7 @@ campoReserva.send_keys("Futbolito")
 #Cambiar fecha a la correspondiente
 campoFecha = wait.until(EC.element_to_be_clickable((By.NAME, "date")))
 campoFecha.clear()
-campoFecha.send_keys("27/09/2025")
+campoFecha.send_keys("04/10/2025")
 
 #Hora siempre en 00:00
 campoHora = wait.until(EC.element_to_be_clickable((By.NAME, "start_time")))
@@ -51,11 +51,11 @@ wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "js-complexFormButton-Subm
 
 #registro de rut
 rutUsuario = wait.until(EC.element_to_be_clickable((By.NAME, "rut")))
-rutUsuario.send_keys("18075306-0")
+rutUsuario.send_keys("19514292-0")
 
 #fecha de nacimiento de usuario
 diaNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "day")))
-diaNacimiento.send_keys("9")
+diaNacimiento.send_keys("25")
 
 #mes de nacimiento de usuario
 mesNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "month")))
@@ -63,7 +63,7 @@ mesNacimiento.send_keys("Septiembre")
 
 #año de nacimiento de usuario
 anoNacimiento = wait.until(EC.element_to_be_clickable((By.NAME, "year")))
-anoNacimiento.send_keys("1976")
+anoNacimiento.send_keys("1996")
 
 #click siguiente pre-finalizar reserva
 wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "js-complexFormButton-Submit"))).click()
