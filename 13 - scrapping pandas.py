@@ -7,6 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 
 navegador = webdriver.Chrome()
+navegador.maximize_window()
 wait = WebDriverWait(navegador, 10)
 
 url = "https://www.distribuidoralira.cl/product-category/alimento-para-gatos/"
